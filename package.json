@@ -1,0 +1,17 @@
+{
+  "name": "toolbox-pro",
+  "version": "1.0.0",
+  "description": "Essential web tools collection",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'No build step needed for static site'"
+  },
+  "keywords": ["tools", "utilities", "web"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
