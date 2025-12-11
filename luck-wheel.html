@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Online Luck Wheel & Random Picker Spinner | GetTools.online</title>
+    <meta name="description" content="Spin the Wheel of Fortune to make random decisions, pick winners, or choose what to do next. Free, customizable, and easy-to-use decision spinner.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="canonical" href="https://gettools.online/luck-wheel.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                        success: '#059669',
+                        warning: '#F59E0B',
+                        error: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">🛠️</span>
+                    <span class="ml-2 text-xl font-bold text-gray-900">gettools.online</span>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-primary font-medium">← Back to All Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Free Luck Wheel & Decision Spinner
+                </h1>
+                <div id="tool-container" class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center justify-center py-12">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prose prose-blue max-w-none text-gray-600">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Spin the Wheel of Fortune for Quick Decisions</h2>
+                <p class="mb-4">
+                    The <strong>Online Luck Wheel</strong> is a simple, entertaining way to make choices. Use it as a <strong>random name picker</strong>, a fun way to decide lunch, or to settle a debate. It's completely free and instantly customizable.
+                </p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">How to Customize Your Wheel:</h3>
+                <ul class="list-disc pl-5 mb-6 space-y-2">
+                    <li>Input the options (names, choices, tasks) you want on the wheel.</li>
+                    <li>The wheel will automatically update as you type.</li>
+                    <li>Hit the "Spin" button and let the randomness decide!</li>
+                </ul>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Ideal Uses:</h3>
+                <p>
+                    From classroom activities and raffle draws to choosing a movie for the night, this decision wheel is a versatile tool for adding a bit of randomness and fun to any choice-making process.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500">
+            <p>&copy; 2024 gettools.online - Free Web Utilities</p>
+            <div class="mt-4 space-x-4">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="password-generator.html" class="hover:text-primary">Password Generator</a>
+                <a href="qr-code-generator.html" class="hover:text-primary">QR Code Generator</a>
+                <a href="dice-roller.html" class="hover:text-primary">Dice Roller</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tools.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const container = document.getElementById('tool-container');
+                // Note: The component name must match your tools.js (usually LuckWheel)
+                if (window.ToolComponents && window.ToolComponents.LuckWheel) {
+                    try {
+                        const component = new window.ToolComponents.LuckWheel();
+                        container.innerHTML = component.render();
+                        component.init();
+                    } catch (error) {
+                        console.error("Error loading tool:", error);
+                        container.innerHTML = '<p class="text-red-500">Error loading tool.</p>';
+                    }
+                } else {
+                    container.innerHTML = '<p class="text-gray-500">Tool component not found.</p>';
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
