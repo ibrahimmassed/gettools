@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Free QR Code Generator (High Quality & Instant) | GetTools.online</title>
+    <meta name="description" content="Create custom QR codes for URLs, text, Wi-Fi, and more. Download high-quality QR images instantly. No registration, no ads, and completely free.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+    <link rel="canonical" href="https://gettools.online/qr-code-generator.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                        success: '#059669',
+                        warning: '#F59E0B',
+                        error: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+                    <span class="text-2xl">🛠️</span>
+                    <span class="ml-2 text-xl font-bold text-gray-900">gettools.online</span>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-primary font-medium">← Back to All Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Free QR Code Generator
+                </h1>
+                <div id="tool-container" class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center justify-center py-12">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prose prose-blue max-w-none text-gray-600">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Create Custom QR Codes Instantly</h2>
+                <p class="mb-4">
+                    Our <strong>Free QR Code Generator</strong> allows you to create high-quality QR codes for websites, text messages, Wi-Fi networks, and more. It is fast, reliable, and works on all devices.
+                </p>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">How to use this tool:</h3>
+                <ol class="list-decimal pl-5 mb-6 space-y-2">
+                    <li>Enter your URL or text in the input field.</li>
+                    <li>The QR code will generate instantly.</li>
+                    <li>Right-click or use the download button to save the image.</li>
+                </ol>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Common Uses</h3>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Restaurant Menus:</strong> Replace physical menus with touch-free PDF links.</li>
+                    <li><strong>Wi-Fi Access:</strong> Share your network credentials easily.</li>
+                    <li><strong>Marketing Materials:</strong> Add codes to flyers and business cards.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500">
+            <p>&copy; 2024 gettools.online - Free Web Utilities</p>
+            <div class="mt-4 space-x-4">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="password-generator.html" class="hover:text-primary">Password Generator</a>
+                <a href="index.html#dice-roller" class="hover:text-primary">Dice Roller</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tools.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const container = document.getElementById('tool-container');
+                // Note: Ensure the component name matches your tools.js (usually QRGenerator)
+                if (window.ToolComponents && window.ToolComponents.QRGenerator) {
+                    try {
+                        const component = new window.ToolComponents.QRGenerator();
+                        container.innerHTML = component.render();
+                        component.init();
+                    } catch (error) {
+                        console.error("Error loading tool:", error);
+                        container.innerHTML = '<p class="text-red-500">Error loading tool.</p>';
+                    }
+                } else {
+                    container.innerHTML = '<p class="text-gray-500">Tool component not found.</p>';
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
