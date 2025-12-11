@@ -178,7 +178,8 @@ class ToolBoxApp {
                 description: 'Spin the wheel of fortune',
                 icon: '🎡',
                 category: 'Games',
-                component: 'LuckWheel'
+                component: 'LuckWheel',
+                url: 'luck-wheel.html'
             },
             {
                 id: 'timezone-converter',
