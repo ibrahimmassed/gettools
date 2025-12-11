@@ -41,37 +41,22 @@
         </div>
     </nav>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full"> 
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            <div>
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Free Luck Wheel & Decision Spinner
-                </h1>
-                <div id="tool-container" class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex items-center justify-center py-12">
-                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                    </div>
-                </div>
-            </div>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+            Free Online Luck Wheel & Decision Spinner
+        </h1>
 
-            <div class="prose prose-blue max-w-none text-gray-600">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Spin the Wheel of Fortune for Quick Decisions</h2>
-                <p class="mb-4">
-                    The <strong>Online Luck Wheel</strong> is a simple, entertaining way to make choices. Use it as a <strong>random name picker</strong>, a fun way to decide lunch, or to settle a debate. It's completely free and instantly customizable.
-                </p>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">How to Customize Your Wheel:</h3>
-                <ul class="list-disc pl-5 mb-6 space-y-2">
-                    <li>Input the options (names, choices, tasks) you want on the wheel.</li>
-                    <li>The wheel will automatically update as you type.</li>
-                    <li>Hit the "Spin" button and let the randomness decide!</li>
-                </ul>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Ideal Uses:</h3>
-                <p>
-                    From classroom activities and raffle draws to choosing a movie for the night, this decision wheel is a versatile tool for adding a bit of randomness and fun to any choice-making process.
-                </p>
+        <div id="tool-container" class="bg-white rounded-xl shadow-lg p-6 border border-gray-100 mx-auto">
+            <div class="flex items-center justify-center py-12">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
             </div>
+        </div>
+        
+        <div class="max-w-2xl mx-auto mt-10 text-center text-gray-600">
+            <p class="text-sm">
+                Use the Luck Wheel to make random decisions, pick winners, or choose what to do next. This tool is free, customizable, and instantly ready to spin!
+            </p>
         </div>
 
     </main>
@@ -93,7 +78,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const container = document.getElementById('tool-container');
-                // Note: The component name must match your tools.js (usually LuckWheel)
                 if (window.ToolComponents && window.ToolComponents.LuckWheel) {
                     try {
                         const component = new window.ToolComponents.LuckWheel();
