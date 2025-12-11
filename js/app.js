@@ -124,12 +124,13 @@ class ToolBoxApp {
                 component: 'WordCounter'
             },
             {
-                id: 'dice-roller',
-                name: 'Dice Roller',
-                description: 'Roll dice and flip coins',
-                icon: '🎲',
-                category: 'Games',
-                component: 'DiceRoller'
+               id: 'dice-roller',
+               name: 'Dice Roller',
+               description: 'Roll dice and flip coins',
+               icon: '🎲',
+               category: 'Games',
+               component: 'DiceRoller',
+               url: 'dice-roller.html' // <--- Add this line
             },
             {
                 id: 'age-calculator',
