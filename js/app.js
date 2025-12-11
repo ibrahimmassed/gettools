@@ -50,12 +50,13 @@ class ToolBoxApp {
     loadTools() {
         this.tools = [
             {
-                id: 'password-generator',
-                name: 'Password Generator',
-                description: 'Generate secure passwords with customizable options',
-                icon: '🔐',
-                category: 'Security',
-                component: 'PasswordGenerator'
+               id: 'password-generator',
+               name: 'Password Generator',
+               description: 'Generate secure passwords...',
+               icon: '🔐',
+               category: 'Security',
+               component: 'PasswordGenerator',
+               url: 'password-generator.html' // <--- New Line
             },
             {
                 id: 'text-capitalizer',
@@ -259,8 +260,14 @@ class ToolBoxApp {
                 </div>
             `;
 
-           toolCard.addEventListener('click', () => {
-                window.location.hash = tool.id;
+          toolCard.addEventListener('click', () => {
+                if (tool.url) {
+                    // If it's a special page, go there directly
+                    window.location.href = tool.url;
+                } else {
+                    // Otherwise use the hash/modal system
+                    window.location.hash = tool.id;
+                }
             });
 
             grid.appendChild(toolCard);
