@@ -11,6 +11,7 @@ class ToolBoxApp {
         this.applyTheme();
         this.loadTools();
         this.renderTools();
+        this.handleRouting();
     }
 
     setupEventListeners() {
@@ -23,8 +24,11 @@ class ToolBoxApp {
         document.getElementById('themeToggle').addEventListener('click', () => {
             this.toggleTheme();
         });
-
-        // Modal controls
+        // NEW: Listen for URL changes (Back button, Forward button, Manual URL change)
+       window.addEventListener('hashchange', () => {
+            this.handleRouting();
+        });
+       // UPDATE: Modal controls
         document.getElementById('closeModal').addEventListener('click', () => {
             this.closeModal();
         });
@@ -207,7 +211,26 @@ class ToolBoxApp {
             }
         ];
     }
+  handleRouting() {
+        // Get the hash without the '#' character
+        const hash = window.location.hash.slice(1);
 
+        if (!hash) {
+            // If no hash, ensure modal is closed
+            if (!document.getElementById('toolModal').classList.contains('hidden')) {
+                this.closeModal();
+            }
+            return;
+        }
+
+        // Find the tool that matches the hash
+        const tool = this.tools.find(t => t.id === hash);
+        
+        if (tool) {
+            // Open the tool (UI only)
+            this.openTool(tool);
+        }
+    }
     renderTools() {
         const grid = document.getElementById('toolsGrid');
         grid.innerHTML = '';
@@ -236,8 +259,8 @@ class ToolBoxApp {
                 </div>
             `;
 
-            toolCard.addEventListener('click', () => {
-                this.openTool(tool);
+           toolCard.addEventListener('click', () => {
+                window.location.hash = tool.id;
             });
 
             grid.appendChild(toolCard);
@@ -273,6 +296,11 @@ class ToolBoxApp {
     }
 
     closeModal() {
+        
+        if (window.location.hash) {
+            window.location.hash = ''; 
+            return;
+        }
         document.getElementById('toolModal').classList.add('hidden');
         document.body.style.overflow = 'auto';
         this.currentTool = null;
