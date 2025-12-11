@@ -67,12 +67,13 @@ class ToolBoxApp {
                 component: 'TextCapitalizer'
             },
             {
-                id: 'qr-generator',
-                name: 'QR Code Generator',
-                description: 'Create QR codes for any text or URL',
-                icon: '📱',
-                category: 'Generators',
-                component: 'QRGenerator'
+               id: 'qr-generator',
+               name: 'QR Code Generator',
+               description: 'Create QR codes for any text or URL',
+               icon: '📱',
+               category: 'Generators',
+               component: 'QRGenerator',
+               url: 'qr-code-generator.html' // <--- Add this line
             },
             {
                 id: 'color-picker',
